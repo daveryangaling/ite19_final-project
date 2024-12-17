@@ -1,0 +1,96 @@
+------------------------------------------
+
+# Roman Numeral Arithmetic Program
+
+| Overview |
+
+This program processes arithmetic operations on Roman numerals read from an input file and writes the results in words to an output file. The program supports addition, subtraction, multiplication, and division. It handles invalid Roman numerals and improper input formats gracefully.
+
+| Files |
+
+- Input.txt: Input file containing lines of Roman numeral arithmetic expressions.
+- Output.txt: Output file where results are written in words.
+
+| Functions |
+
+### `int romanToDecimal(char *roman)`
+Converts a Roman numeral string to its decimal equivalent.
+- Parameters: 
+  - `roman` (char*): Roman numeral string.
+- Returns: 
+  - Integer value of the Roman numeral.
+
+### `int isValidRoman(char *roman)`
+Checks if a string is a valid Roman numeral.
+- Parameters: 
+  - `roman` (char*): Roman numeral string.
+- Returns: 
+  - 1 if valid, 0 otherwise.
+
+### `int performArithmetic(int num1, int num2, char op)`
+Performs arithmetic operation on two integers.
+- Parameters: 
+  - `num1` (int): First number.
+  - `num2` (int): Second number.
+  - `op` (char): Arithmetic operator (`+`, `-`, `*`, `/`).
+- Returns: 
+  - Result of the operation. Returns -1 for division by zero.
+
+### `void numberToWords(int num, char *result)`
+Converts a number to its word representation.
+- Parameters: 
+  - `num` (int): Number to convert.
+  - `result` (char*): Buffer to store the word representation.
+
+### `void formatWords(char *str)`
+Removes extra spaces from a string.
+- Parameters: 
+  - `str` (char*): String to format.
+
+### `void processLine(char *line, FILE *outputFile)`
+Processes a single line from the input file.
+- **Parameters**: 
+  - `line` (char*): Line to process.
+  - `outputFile` (FILE*): File pointer to output file.
+
+### `void processFile(const char *inputFileName, const char *outputFileName)`
+Processes the entire input file and writes results to the output file.
+~ Parameters: 
+  - `inputFileName` (const char*): Name of the input file.
+  - `outputFileName` (const char*): Name of the output file.
+
+| Main Function |
+
+~ `int main()`
+The entry point of the program.
+- Opens the input and output files.
+- Calls `processFile` to handle the file processing.
+- Notifies the user upon completion.
+
+|How to Use|
+
+1. Prepare Input File: Create an `Input.txt` file with Roman numeral arithmetic expressions, each on a new line.
+   - Example: 
+     ```
+     X + V
+     L - X
+     IV * II
+     ```
+
+2. Run the Program: Compile and run the program. Ensure that `Input.txt` is in the same directory as the executable.
+   - On compilation, the program reads `Input.txt`, processes each line, performs the arithmetic, converts the result to words, and writes it to `Output.txt`.
+
+3. Check Output File: The results will be written in words in the `Output.txt` file.
+   - Example Output:
+     ```
+     Fifteen
+     Forty
+     Eight
+     ```
+
+|Error Handling|
+
+~ Invalid Roman Numerals: The program checks for invalid Roman numerals and writes "Invalid Roman numeral" in the output file.
+~ Invalid Input Format: If the input format is incorrect, the program writes "Invalid input format" in the output file.
+
+-----------------------------
